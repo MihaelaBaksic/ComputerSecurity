@@ -40,11 +40,10 @@ def decrypt(master_password: str):
 
     aes = AES.new(key, mode=AES.MODE_EAX, nonce=nonce)
     pt = aes.decrypt(ct)
-    try:
-        aes.verify(tag)
-        print("The message is authentic: ", pt)
-    except ValueError:
-        print("Incorrect master password or database corrupted")
+
+    aes.verify(tag)
+    return pt
+
 
 
 # encrypt('masterPass', b'plaintext'))

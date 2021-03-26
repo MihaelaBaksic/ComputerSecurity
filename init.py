@@ -1,21 +1,15 @@
 import args_parser
-import pbkd
-from Crypto.Random import get_random_bytes
+import encryptor
+import json
 
 
 def init():
     if args_parser.args.mp is None:
         raise AttributeError('Master password must be given')
 
-    key = pbkd.derive_encrypt(args_parser.args.mp)
+    init_data = bytes(json.dumps({'init': 'passpass'}), encoding='utf8')
 
-    dummy_address = str(get_random_bytes(16))
-    dummy_password = str(get_random_bytes(16))
-
+    encryptor.encrypt(args_parser.args.mp, init_data)
 
 
-
-
-
-
-
+init()

@@ -2,7 +2,7 @@ from Crypto.Protocol.KDF import scrypt
 import Crypto.Random
 
 
-def derive_encrypt(master_password: str):
+def derive_for_encryption(master_password: str):
     # todo define salt length
     salt = Crypto.Random.get_random_bytes(16)
     # save salt for decryption
@@ -14,7 +14,7 @@ def derive_encrypt(master_password: str):
     return key
 
 
-def derive_decrypt(master_password: str):
+def derive_for_decryption(master_password: str):
     f = open('salt.in', 'rb')
     salt = f.read()
     f.close()

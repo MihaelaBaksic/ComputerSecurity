@@ -4,18 +4,15 @@ import pbkd
 
 # todo figure out how to store both ct and tag
 def encrypt(master_password: str, pt: bytes):
-    key = pbkd.derive_encrypt(master_password)
-    print("key: ")
-    print(key)
+    key = pbkd.derive_for_encryption(master_password)
 
     aes = AES.new(key, mode=AES.MODE_EAX)
-    nonce = aes.nonce
+
+    ct, tag = aes.encrypt_and_digest(pt)
 
     f = open('nonce.in', 'wb+')
-    f.write(nonce)
+    f.write(aes.nonce)
     f.close
-
-    ct, tag = aes.encrypt_and_digest(bytes(pt))
 
     f = open('tag.in', 'wb+')
     f.write(tag)
@@ -25,13 +22,9 @@ def encrypt(master_password: str, pt: bytes):
     f.write(ct)
     f.close()
 
-    return ct, tag
-
 
 def decrypt(master_password: str):
-    key = pbkd.derive_decrypt(master_password)
-    print("key: ")
-    print(key)
+    key = pbkd.derive_for_decryption(master_password)
 
     f = open('nonce.in', 'rb')
     nonce = f.read()
@@ -54,5 +47,5 @@ def decrypt(master_password: str):
         print("Incorrect master password or database corrupted")
 
 
-print(encrypt('masterPass', b'plaintext'))
-decrypt('masterPass')
+# encrypt('masterPass', b'plaintext'))
+# decrypt('masterPass')

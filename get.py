@@ -13,7 +13,6 @@ def get():
 
     try:
         data = str(encryptor.decrypt(args_parser.args.mp).decode('utf-8'))
-        print(data)
     except ValueError:
         print("Incorrect master password or database corrupted")
         return

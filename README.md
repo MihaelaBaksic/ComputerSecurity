@@ -51,14 +51,14 @@ Korištenje se sastoji od 3 koraka: inicijalizacije (init), postavljanja lozinke
 
 1. Na samom početku korisnik treba odabrati svoj master password koji će mu služiti za pristup bazi. Pomoću njega izvršava inicijalizaciju password managera naredbom:
 
-    $ ./passManager init <master_password>
+    $ ./passManager init "master_password"
     
     Navedena naredba predviđena je za izvršavanje na samom početku korištenja te će njezino ponavljanje uzrokovati brisanje baze i ponovnu inicijalizaciju.
     
 2. Za dodavanje lozinke za pojedinu adresu potrebno je izvesti naredbu:
 
-    $  ./passManager put <adresa> <lozinka>
+    $  ./passManager put "adresa" "lozinka"
     
 3. Za dohvati lozinke adrese potrebno je izvesti naredbu:
 
-    $  ./passManager get <adresa>
+    $  ./passManager get "adresa"

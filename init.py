@@ -4,12 +4,11 @@ import json
 
 
 def init():
-    if args_parser.args.mp is None:
-        raise AttributeError('Master password must be given')
-
     init_data = bytes(json.dumps({}), encoding='utf8')
 
     encryptor.encrypt(args_parser.args.mp, init_data)
+
+    print("Password manager initialised")
 
 
 init()

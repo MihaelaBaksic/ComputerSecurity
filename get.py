@@ -4,8 +4,6 @@ import args_parser
 
 
 def get():
-    if args_parser.args.mp is None:
-        raise AttributeError('Master password must be given')
     if args_parser.args.adr is None:
         raise AttributeError('Address must be given')
 
@@ -26,4 +24,7 @@ def get():
         print('No password for address ' + args_parser.args.adr)
 
 
-get()
+try:
+    get()
+except AttributeError as err:
+    print(err)

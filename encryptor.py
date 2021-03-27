@@ -2,7 +2,7 @@ from Crypto.Cipher import AES
 import pbkd
 
 
-# todo figure out how to store both ct and tag
+# todo store both ct and tag
 def encrypt(master_password: str, pt: bytes):
     key = pbkd.derive_for_encryption(master_password)
 

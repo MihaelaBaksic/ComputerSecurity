@@ -3,7 +3,6 @@ import Crypto.Random
 
 
 def derive_for_encryption(master_password: str):
-    # todo define salt length
     salt = Crypto.Random.get_random_bytes(16)
     # save salt for decryption
     f = open('salt.in', 'wb+')

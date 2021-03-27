@@ -4,8 +4,6 @@ import json
 
 
 def put():
-    if args_parser.args.mp is None:
-        raise AttributeError('Master password must be given')
     if args_parser.args.adr is None:
         raise AttributeError('Address must be given')
     if args_parser.args.pwd is None:
@@ -26,4 +24,8 @@ def put():
     encryptor.encrypt(args_parser.args.mp, bytes(json.dumps(data_json), encoding='utf8'))
 
 
-put()
+try:
+    put()
+    print("Stored password for address " + args_parser.args.adr)
+except AttributeError as err:
+    print(err)

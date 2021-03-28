@@ -57,8 +57,8 @@ Korištenje se sastoji od 3 koraka: inicijalizacije (init), postavljanja lozinke
     
 2. Za dodavanje lozinke za pojedinu adresu potrebno je izvesti naredbu:
 
-    $  ./passManager put "adresa" "lozinka"
+    $  ./passManager put "master_password" "adresa" "lozinka"
     
 3. Za dohvati lozinke adrese potrebno je izvesti naredbu:
 
-    $  ./passManager get "adresa"
+    $  ./passManager get "master_password" "adresa"

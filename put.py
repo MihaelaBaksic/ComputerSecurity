@@ -12,6 +12,7 @@ def put():
     data: str
 
     try:
+        # Get plaintext from database, throws ValueError if validation has failed
         data = str(encryptor.decrypt(args_parser.args.mp).decode('utf-8'))
     except ValueError:
         print("Incorrect master password or database corrupted")
@@ -19,8 +20,10 @@ def put():
 
     data_json = json.loads(data)
 
+    # Add new password
     data_json[args_parser.args.adr] = args_parser.args.pwd
 
+    # Encrypt and store new data
     encryptor.encrypt(args_parser.args.mp, bytes(json.dumps(data_json), encoding='utf8'))
 
 

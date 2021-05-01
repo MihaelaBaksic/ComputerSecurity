@@ -1,1 +1,1 @@
-{"koko": [true, "b'\\x1bW\\xe6\\x90\\xf1\\x03\\xee\\x9c\\xf30\\xd4\\x0c\\xf6\\xde\\x94\\x8c'", "e88c9a5210ec916952ebcb2a5ff05812ad5894519d2f925ee0f2665560f67f3b"]}
+{"koko": [false, "b'0\\xa6\\xaf\\xb2\\xe9\\x95\\xc2N\\x81\\xd1\\xde\\xfd\\x89\\xf5T\\xe2'", "8256a8c2fb51fe60ae6ef8da17c22e7d14993a0067d0fa45e78d9af4501a460d"]}

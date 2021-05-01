@@ -1,4 +1,4 @@
-import db_manip
+from mgmt import db_manip
 
 
 def forcepass(username: str):

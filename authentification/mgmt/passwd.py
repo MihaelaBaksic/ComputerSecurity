@@ -1,4 +1,4 @@
-import db_manip
+from mgmt import db_manip
 from getpass import getpass
 from Crypto.Random import get_random_bytes
 from Crypto.Hash import SHA256

@@ -1,8 +1,10 @@
 from login_args import args
 from Crypto.Hash import SHA256
 from getpass import getpass
-from db_manip import get_records
 from forcepass_user import update
+import sys
+sys.path.append('../')
+from db_manip import get_records
 
 if __name__ == '__main__':
     try_cnt = 3

@@ -1,9 +1,11 @@
-from mgmt import db_manip
 from Crypto.Random import get_random_bytes
 from Crypto.Hash import SHA256
 from getpass import getpass
+import sys
+sys.path.append('../')
+import db_manip
 
-
+# Adding new username and password to database
 def add(username: str):
     data = db_manip.get_records()
 
@@ -18,6 +20,7 @@ def add(username: str):
             print("User add failed. Password mismatch.")
             return
 
+        # Hashing and storing password into database
         salt = str(get_random_bytes(16))
         pass_hash = SHA256.new(bytes(password + salt, encoding='utf-8')).hexdigest()
 

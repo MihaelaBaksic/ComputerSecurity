@@ -1,4 +1,6 @@
-from mgmt import db_manip
+import sys
+sys.path.append('../')
+import db_manip
 
 
 def delete(username: str):

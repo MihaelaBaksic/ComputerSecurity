@@ -1,10 +1,11 @@
 from mgmt_args import args
 from add import add
 from passwd import passwd
-from _del_ import delete
+from delete import delete
 from forcepass import forcepass
 
-
+# Entry point for user management
+# Expected positional arguments are action and username
 if __name__ == '__main__':
     if args.action == 'add':
         add(args.username)

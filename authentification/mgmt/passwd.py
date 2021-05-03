@@ -2,6 +2,7 @@ from getpass import getpass
 from Crypto.Random import get_random_bytes
 from Crypto.Hash import SHA256
 import db_manip
+from util import calculate_hash
 
 
 # Updating password of an existing user
@@ -17,8 +18,7 @@ def passwd(username: str):
             return
 
         # Hashing and storing new password to the database
-        salt = str(get_random_bytes(16))
-        pass_hash = SHA256.new(bytes(password + salt, encoding='utf-8')).hexdigest()
+        pass_hash, salt = calculate_hash(password)
 
         data[username][1:] = (salt, pass_hash)
         db_manip.store_records(data)

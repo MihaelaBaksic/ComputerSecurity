@@ -3,6 +3,7 @@ from Crypto.Hash import SHA256
 from getpass import getpass
 from login.forcepass_user import update
 from db_manip import get_records
+from util import calculate_hash
 
 # Performing user login
 # User has 3 attempts to enter a correct password
@@ -21,7 +22,7 @@ if __name__ == '__main__':
             db_pass_hash = db_record[2]
 
             # Calculating password hash from provided password and stored hash
-            provided_pass_hash = SHA256.new(bytes(password + salt, encoding='utf-8')).hexdigest()
+            provided_pass_hash, _ = calculate_hash(password, salt)
 
             # Comparing provided and stored password hash
             if db_pass_hash != provided_pass_hash:

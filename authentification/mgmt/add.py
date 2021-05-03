@@ -1,8 +1,5 @@
-from Crypto.Random import get_random_bytes
-from Crypto.Hash import SHA256
-from getpass import getpass
 import db_manip
-from util import calculate_hash
+from util import *
 
 
 # Adding new username and password to database
@@ -13,10 +10,9 @@ def add(username: str):
         data[username]
         print("Username {} already exists. If you wish to update its password use action passwd.".format(username))
     except KeyError:
-        password = getpass("Password: ")
-        passwordRepeated = getpass("Repeat password: ")
 
-        if password != passwordRepeated:
+        valid, password = get_password("Password: ")
+        if not valid:
             print("User add failed. Password mismatch.")
             return
 

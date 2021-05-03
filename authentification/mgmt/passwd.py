@@ -1,8 +1,5 @@
-from getpass import getpass
-from Crypto.Random import get_random_bytes
-from Crypto.Hash import SHA256
 import db_manip
-from util import calculate_hash
+from util import *
 
 
 # Updating password of an existing user
@@ -10,10 +7,8 @@ def passwd(username: str):
     data = db_manip.get_records()
 
     try:
-        password = getpass("Password: ")
-        passwordRepeated = getpass("Repeat password: ")
-
-        if password != passwordRepeated:
+        valid, password = get_password("Password: ")
+        if not valid:
             print("Password update failed. Password mismatch.")
             return
 

@@ -1,8 +1,8 @@
-from mgmt_args import args
-from add import add
-from passwd import passwd
-from delete import delete
-from forcepass import forcepass
+from mgmt.args import args
+from mgmt.add import add
+from mgmt.passwd import passwd
+from mgmt.delete import delete
+from mgmt.forcepass import forcepass
 
 # Entry point for user management
 # Expected positional arguments are action and username

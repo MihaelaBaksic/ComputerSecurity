@@ -1,9 +1,6 @@
-
 from getpass import getpass
 from Crypto.Random import get_random_bytes
 from Crypto.Hash import SHA256
-import sys
-sys.path.append('../')
 import db_manip
 
 
@@ -27,5 +24,6 @@ def passwd(username: str):
         db_manip.store_records(data)
 
         print("Password for username {} successfully updated.".format(username))
+
     except KeyError:
         print("Username {} doesn't exists in the database. If you wish to add it use action add.".format(username))

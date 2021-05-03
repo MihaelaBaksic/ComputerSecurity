@@ -1,9 +1,8 @@
 from Crypto.Random import get_random_bytes
 from Crypto.Hash import SHA256
 from getpass import getpass
-import sys
-sys.path.append('../')
 import db_manip
+
 
 # Adding new username and password to database
 def add(username: str):

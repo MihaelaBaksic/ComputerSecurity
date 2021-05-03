@@ -28,7 +28,7 @@ Svojstvo 5 osigurava pravilno spremanje lozinki u bazu.
 
 Svaki zapis u bazi podataka sastoji se od korisničkog imena, zastavice valid, salta i hashirane lozinke.
 
-####Hashing
+#### Hashing
 
 Postupak pohrane lozinke se sastoji od generiranja random salta koristeći kriptografski random generator.
 Salt se konkatenira na lozinku i dobiveni string se hashira kriptografskom hash funkcijom.

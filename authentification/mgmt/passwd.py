@@ -12,6 +12,10 @@ def passwd(username: str):
             print("Password update failed. Password mismatch.")
             return
 
+        if not validate_password(password):
+            print("Password update failed. Password must be at least 8 characters long,\ncontain at least one number and one upper case letter")
+            return
+
         # Hashing and storing new password to the database
         pass_hash, salt = calculate_hash(password)
 

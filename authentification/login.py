@@ -39,8 +39,8 @@ if __name__ == '__main__':
             print("Username or password incorrect")
             attempt_cnt -= 1
 
-        except ValueError:
-            print("Password update failed. Password mismatch.")
+        except ValueError as e:
+            print(e)
             exit(0)
 
     if attempt_cnt == 0:

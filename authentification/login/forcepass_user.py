@@ -11,7 +11,11 @@ def update(username: str):
     if not valid:
         raise ValueError('Password update failed. Password mismatch.')
 
-    # Hash and store new password
+    if not validate_password(password):
+        raise ValueError(
+            "User add failed. Password must be at least 8 characters long,\ncontain at least one number and one upper case letter")
+
+        # Hash and store new password
     pass_hash, salt = calculate_hash(password)
 
     data[username] = (True, salt, pass_hash)

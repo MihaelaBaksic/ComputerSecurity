@@ -1,6 +1,7 @@
 from getpass import getpass
 from Crypto.Random import get_random_bytes
 from Crypto.Hash import SHA256
+import re
 
 
 # Calculates hash for given password and optional salt
@@ -18,3 +19,15 @@ def get_password(prompt: str):
     password = getpass(prompt)
     passwordRepeated = getpass("Repeat " + prompt.lower())
     return password == passwordRepeated, password
+
+
+def validate_password(password: str):
+    min_len = 8
+
+    if len(password) < min_len\
+            or not bool(re.search(r'\d', password))\
+            or not bool(re.match(r'\w*[A-Z]\w', password)):
+        return False
+
+    return True
+

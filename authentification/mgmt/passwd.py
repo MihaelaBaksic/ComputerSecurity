@@ -12,7 +12,7 @@ def passwd(username: str):
             print("Password update failed. Password mismatch.")
             return
 
-        if not validate_password(password):
+        if not validate_password_format(password):
             print("Password update failed. Password must be at least 8 characters long,\ncontain at least one number and one upper case letter")
             return
 

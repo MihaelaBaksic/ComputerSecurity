@@ -11,7 +11,7 @@ def update(username: str):
     if not valid:
         raise ValueError('Password update failed. Password mismatch.')
 
-    if not validate_password(password):
+    if not validate_password_format(password):
         raise ValueError(
             "User add failed. Password must be at least 8 characters long,\ncontain at least one number and one upper case letter")
 

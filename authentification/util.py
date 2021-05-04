@@ -1,5 +1,4 @@
 from getpass import getpass
-
 import re
 import argon2
 

@@ -65,11 +65,11 @@ Prije izvođenja korisnik se mora pozicionirati unutar direktorija `authentifica
 
 ### usermgmt
 
-Alat za upravljanje lozinkama podržava akcije: add (dodavanje), delete (brisanje), passwd (izmjena) i forcepass (prisilna izmjena).
+Alat za upravljanje lozinkama podržava akcije: add (dodavanje), delete (brisanje), passwd (izmjena) i forcepass (prisilna izmjena pri idućoj prijavi).
 
 Izvođenje odabrane akcije izvodi se naredbom u obliku:
 
-    $ python3 ./usermgmt.py <naredba> <username>
+    $ python3 ./usermgmt.py <akcija> <username>
 
 
 ### login

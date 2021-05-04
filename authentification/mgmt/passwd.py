@@ -17,9 +17,9 @@ def passwd(username: str):
             return
 
         # Hashing and storing new password to the database
-        pass_hash, salt = calculate_hash(password)
+        pass_hash = calculate_hash(password)
 
-        data[username][1:] = (salt, pass_hash)
+        data[username][1] = pass_hash
         db_manip.store_records(data)
 
         print("Password for username {} successfully updated.".format(username))

@@ -16,7 +16,7 @@ def update(username: str):
             "User add failed. Password must be at least 8 characters long,\ncontain at least one number and one upper case letter")
 
         # Hash and store new password
-    pass_hash, salt = calculate_hash(password)
+    pass_hash = calculate_hash(password)
 
-    data[username] = (True, salt, pass_hash)
+    data[username] = (True, pass_hash)
     db_manip.store_records(data)

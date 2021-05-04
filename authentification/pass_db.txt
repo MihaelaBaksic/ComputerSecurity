@@ -1,1 +1,1 @@
-{"koko": [false, "b'V7\\xdd\\xdb\\x85\\xa6\\x0b\\x15\\x00\\x04O\\x03%%\\xf2\\xcb\\xe4\\xcc\\xd27vnt\\xac\\xf6\\xbe\\xecx0\\x0e\\xe0\\x8d'", "b3d80f742bc8dbab8281251f1135295acf01e4bc7bb11c03f4ac49518a12132a"]}
+{"koko": [true, "$argon2id$v=19$m=102400,t=16,p=2$H7/D4piU6lbhihobnQ6kZA$pwlGJXc9wbI+egi14DQ0fgKv//Sy0D95OTViQsjraBE"]}

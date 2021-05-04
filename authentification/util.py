@@ -1,18 +1,26 @@
 from getpass import getpass
-from Crypto.Random import get_random_bytes
-from Crypto.Hash import SHA256
+
 import re
+import argon2
+
+t_cost = 16
+parallelism = 2
+hash_len = 32
+salt_len = 16
 
 
 # Calculates hash for given password and optional salt
 # If salt is not provided the new salt is generated and returned with password hash
-def calculate_hash(password: str, salt=None):
-    if salt is None:
-        salt = str(get_random_bytes(32))
+def calculate_hash(password: str):
 
-    pass_hash = SHA256.new(bytes(password + salt, encoding='utf-8')).hexdigest()
+    a2_hasher = argon2.PasswordHasher(time_cost=t_cost, parallelism=parallelism, hash_len=hash_len, salt_len=salt_len)
+    pass_hash = a2_hasher.hash(password)
+    return pass_hash
 
-    return pass_hash, salt
+
+def verify_hash(_hash: str, password: str):
+    a2_hasher = argon2.PasswordHasher(time_cost=t_cost, parallelism=parallelism, hash_len=hash_len, salt_len=salt_len)
+    a2_hasher.verify(_hash, password)
 
 
 def get_password(prompt: str):

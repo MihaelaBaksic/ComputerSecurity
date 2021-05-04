@@ -21,8 +21,8 @@ def add(username: str):
             return
 
         # Hashing and storing password into database
-        pass_hash, salt = calculate_hash(password)
+        pass_hash = calculate_hash(password)
 
-        data[username] = (True, salt, pass_hash)
+        data[username] = (True, pass_hash)
         db_manip.store_records(data)
         print("Password for username {} successfully added.".format(username))
